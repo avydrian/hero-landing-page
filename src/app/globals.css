@@ -1,9 +1,19 @@
 @import "tailwindcss";
 
+/* Allo — open-source variable typeface (SIL OFL 1.1)
+   https://github.com/joshpuckett/allo */
+@font-face {
+  font-family: "Allo";
+  src: url("/fonts/AlloVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #0a0a0a;
-  /* Values measured from supabase.com (desktop) */
+  /* Brand values measured from supabase.com (desktop) */
   --brand-green: oklch(0.525 0.12 157.5);
   --brand-green-text: oklch(0.99 0.00275 157.5);
   --ink: oklch(0.1 0 337.5);
@@ -17,14 +27,14 @@
   --color-brand-text: var(--brand-green-text);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-manrope);
+  --font-sans: "Allo", system-ui, -apple-system, sans-serif;
+  --font-display: "Allo", system-ui, -apple-system, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
-  /* Supabase body text weight is 450 (Inter variable) */
+  font-family: "Allo", system-ui, -apple-system, sans-serif;
+  /* Body text weight stays at 450 for the measured look */
   font-weight: 450;
 }
