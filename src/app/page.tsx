@@ -6,9 +6,9 @@
    - Brand green: oklch(0.525 0.12 157.5) — solid, not a gradient */
 
 const btnPrimary =
-  "inline-flex h-[38px] items-center justify-center rounded-[9.3px] bg-brand px-4 text-sm font-medium leading-5 text-brand-text transition hover:opacity-90";
+  "inline-flex h-[38px] shrink-0 items-center justify-center whitespace-nowrap rounded-[9.3px] bg-brand px-4 text-sm font-medium leading-5 text-brand-text transition hover:opacity-90";
 const btnSecondary =
-  "inline-flex h-[38px] items-center justify-center rounded-[9.3px] bg-white px-4 text-sm font-medium leading-5 text-ink transition hover:opacity-80";
+  "inline-flex h-[38px] shrink-0 items-center justify-center whitespace-nowrap rounded-[9.3px] border border-black/[0.08] bg-white px-4 text-sm font-medium leading-5 text-ink shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition hover:bg-zinc-50";
 
 export default function Home() {
   const features = [
@@ -59,7 +59,7 @@ export default function Home() {
     <div className="min-h-screen bg-white text-ink">
       {/* Nav */}
       <header className="sticky top-0 z-30 border-b border-zinc-200/60 bg-white/80 backdrop-blur">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
           <div className="flex items-center gap-2">
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand text-white">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
@@ -81,10 +81,10 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <div className="flex items-center gap-2">
+          <div className="hidden items-center gap-2 md:flex">
             <a
               href="#"
-              className="rounded-lg bg-white px-2.5 py-1 text-xs font-medium leading-4"
+              className="whitespace-nowrap rounded-lg bg-white px-2.5 py-1 text-xs font-medium leading-4"
             >
               Sign in
             </a>
@@ -92,22 +92,32 @@ export default function Home() {
               Start your project
             </a>
           </div>
+          {/* Mobile menu button */}
+          <button
+            type="button"
+            aria-label="Open menu"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/[0.08] text-ink md:hidden"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+              <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
+            </svg>
+          </button>
         </nav>
       </header>
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 pt-16 pb-20 text-center sm:pt-24">
+        <div className="mx-auto max-w-7xl px-5 pt-10 pb-16 text-left sm:pt-24 md:text-center">
           <h1 className="font-display text-[34px] font-medium leading-none tracking-normal md:text-[46px]">
             Build in a weekend
             <br />
             <span className="text-brand">Scale to millions</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-6 text-muted">
+          <p className="mt-6 max-w-2xl text-base leading-6 text-muted md:mx-auto">
             Start your project with a Postgres database. Add Authentication, Data
             APIs, Edge Functions, Realtime Data, Storage, and Vector embeddings.
           </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-row flex-wrap items-center justify-start gap-3 md:justify-center">
             <a href="#" className={btnPrimary}>
               Start your project
             </a>
@@ -118,7 +128,7 @@ export default function Home() {
         </div>
 
         {/* Product preview mock */}
-        <div className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="mx-auto max-w-6xl px-5 pb-16 md:pb-20">
           <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-50">
             <div className="flex items-center gap-2 border-b border-zinc-200 px-4 py-3">
               <span className="h-3 w-3 rounded-full bg-red-400" />
@@ -165,7 +175,7 @@ export default function Home() {
                         className="grid grid-cols-3 gap-4 rounded-md bg-zinc-50 px-3 py-2 text-sm leading-5"
                       >
                         <span className="text-muted">#{row.id}</span>
-                        <span>{row.email}</span>
+                        <span className="truncate">{row.email}</span>
                         <span className="text-brand">{row.role}</span>
                       </div>
                     ))}
@@ -234,7 +244,7 @@ export default function Home() {
           Join millions of developers shipping with SupaHero. Free to start, scales
           with you.
         </p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <div className="mt-8 flex flex-row flex-wrap items-center justify-center gap-3">
           <a href="#" className={btnPrimary}>
             Start your project
           </a>
